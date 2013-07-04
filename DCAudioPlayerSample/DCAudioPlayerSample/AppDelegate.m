@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  DCMp3PlayerSample
+//  DCAudioPlayerSample
 //
 //  Created by 廣川政樹 on 2013/07/03.
 //  Copyright (c) 2013年 Dolice. All rights reserved.

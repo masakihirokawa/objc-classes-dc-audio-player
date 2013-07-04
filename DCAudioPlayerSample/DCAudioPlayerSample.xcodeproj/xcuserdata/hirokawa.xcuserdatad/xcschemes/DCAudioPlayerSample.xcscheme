@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "608F19AC178412E100B07D3F"
-               BuildableName = "DCMp3PlayerSample.app"
-               BlueprintName = "DCMp3PlayerSample"
-               ReferencedContainer = "container:DCMp3PlayerSample.xcodeproj">
+               BlueprintIdentifier = "608986F517843C4700884767"
+               BuildableName = "DCAudioPlayerSample.app"
+               BlueprintName = "DCAudioPlayerSample"
+               ReferencedContainer = "container:DCAudioPlayerSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "608F19AC178412E100B07D3F"
-            BuildableName = "DCMp3PlayerSample.app"
-            BlueprintName = "DCMp3PlayerSample"
-            ReferencedContainer = "container:DCMp3PlayerSample.xcodeproj">
+            BlueprintIdentifier = "608986F517843C4700884767"
+            BuildableName = "DCAudioPlayerSample.app"
+            BlueprintName = "DCAudioPlayerSample"
+            ReferencedContainer = "container:DCAudioPlayerSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "608F19AC178412E100B07D3F"
-            BuildableName = "DCMp3PlayerSample.app"
-            BlueprintName = "DCMp3PlayerSample"
-            ReferencedContainer = "container:DCMp3PlayerSample.xcodeproj">
+            BlueprintIdentifier = "608986F517843C4700884767"
+            BuildableName = "DCAudioPlayerSample.app"
+            BlueprintName = "DCAudioPlayerSample"
+            ReferencedContainer = "container:DCAudioPlayerSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "608F19AC178412E100B07D3F"
-            BuildableName = "DCMp3PlayerSample.app"
-            BlueprintName = "DCMp3PlayerSample"
-            ReferencedContainer = "container:DCMp3PlayerSample.xcodeproj">
+            BlueprintIdentifier = "608986F517843C4700884767"
+            BuildableName = "DCAudioPlayerSample.app"
+            BlueprintName = "DCAudioPlayerSample"
+            ReferencedContainer = "container:DCAudioPlayerSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

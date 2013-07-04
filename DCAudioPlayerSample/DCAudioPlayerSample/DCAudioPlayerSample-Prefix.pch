@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'DCMp3PlayerSample' target in the 'DCMp3PlayerSample' project
+// Prefix header for all source files of the 'DCAudioPlayerSample' target in the 'DCAudioPlayerSample' project
 //
 
 #import <Availability.h>

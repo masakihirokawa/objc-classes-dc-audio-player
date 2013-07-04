@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DCMp3PlayerSample.xcodeproj">
+      location = "self:DCAudioPlayerSample.xcodeproj">
    </FileRef>
 </Workspace>
