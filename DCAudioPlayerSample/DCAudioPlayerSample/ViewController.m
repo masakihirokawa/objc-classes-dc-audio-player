@@ -26,37 +26,22 @@ typedef enum audioPlayButtonEvent : NSInteger {
 {
     [super viewDidLoad];
     
-    //オーディオプレイヤー初期化
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *filePath = [mainBundle pathForResource:AUDIO_RESOURCE_FILE_NAME
-                                              ofType:AUDIO_RESOURCE_FILE_EXT];
-    NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
-    NSError *error = nil;
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl
-                                                                        error:&error];
-    
-    //エラーであれば処理しない
-    if (error) {
-        return;
-    }
-    
-    //バッファを保持
-    [audioPlayer prepareToPlay];
+    //クラス初期化
+    _audioPlayer = [[DCAudioPlayer alloc] initWithAudioResource:AUDIO_RESOURCE_FILE_NAME
+                                                        fileExt:AUDIO_RESOURCE_FILE_EXT
+                                                  numberOfLoops:0];
     
     //ボタンとスライダーをセット
     [self setButtonsAndSlider];
-    
-    //オーディオプレイヤー保持
-    _audioPlayer = audioPlayer;
 }
 
 //再生/停止ボタンイベント
 - (void)buttonTapped:(UIButton *)button
 {
     if (button.tag == AUDIO_PLAY) {
-        float volume = _audioVolumeSlider.value;
-        _audioPlayer.volume = volume;
-        _audioPlayer.currentTime = 0;
+        //[_audioPlayer setVolume:_audioVolumeSlider.value];
+        _audioPlayer.volume = _audioVolumeSlider.value;
+        //_audioPlayer.currentTime = 0;
         [_audioPlayer play];
     } else if (button.tag == AUDIO_STOP) {
         [_audioPlayer pause];

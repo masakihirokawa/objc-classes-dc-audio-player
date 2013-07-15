@@ -20,6 +20,7 @@
 		6089871617843C4700884767 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6089871517843C4700884767 /* ViewController.m */; };
 		60B634DD178444A7005CDC60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B634DC178444A7005CDC60 /* AVFoundation.framework */; };
 		C22277AA1792C5AB00E78529 /* o-magne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C22277A91792C5AB00E78529 /* o-magne.mp3 */; };
+		C283073717937F1A00C2D6B7 /* DCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C283073617937F1A00C2D6B7 /* DCAudioPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		6089871517843C4700884767 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		60B634DC178444A7005CDC60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C22277A91792C5AB00E78529 /* o-magne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "o-magne.mp3"; sourceTree = "<group>"; };
+		C283073517937F1A00C2D6B7 /* DCAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCAudioPlayer.h; path = Classes/DCAudioPlayer.h; sourceTree = "<group>"; };
+		C283073617937F1A00C2D6B7 /* DCAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCAudioPlayer.m; path = Classes/DCAudioPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 		608986FF17843C4700884767 /* DCAudioPlayerSample */ = {
 			isa = PBXGroup;
 			children = (
+				C283073817937F2100C2D6B7 /* Classes */,
 				6089870817843C4700884767 /* AppDelegate.h */,
 				6089870917843C4700884767 /* AppDelegate.m */,
 				6089871117843C4700884767 /* MainStoryboard.storyboard */,
@@ -128,6 +132,15 @@
 				C22277A91792C5AB00E78529 /* o-magne.mp3 */,
 			);
 			path = audio;
+			sourceTree = "<group>";
+		};
+		C283073817937F2100C2D6B7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C283073517937F1A00C2D6B7 /* DCAudioPlayer.h */,
+				C283073617937F1A00C2D6B7 /* DCAudioPlayer.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +213,7 @@
 				6089870617843C4700884767 /* main.m in Sources */,
 				6089870A17843C4700884767 /* AppDelegate.m in Sources */,
 				6089871617843C4700884767 /* ViewController.m in Sources */,
+				C283073717937F1A00C2D6B7 /* DCAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
