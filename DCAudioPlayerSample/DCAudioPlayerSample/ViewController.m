@@ -26,6 +26,7 @@ typedef enum audioPlayButtonEvent : NSInteger {
 {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     //初期化
     _audioPlayer = [[DCAudioPlayer alloc] initWithAudio:AUDIO_RESOURCE_FILE_NAME
                                                     ext:AUDIO_RESOURCE_FILE_EXT];
@@ -45,11 +46,34 @@ typedef enum audioPlayButtonEvent : NSInteger {
         [_audioPlayer play];
     } else {
         //一時停止
+=======
+    //クラス初期化
+    _audioPlayer = [[DCAudioPlayer alloc] initWithAudioResource:AUDIO_RESOURCE_FILE_NAME
+                                                        fileExt:AUDIO_RESOURCE_FILE_EXT
+                                                  numberOfLoops:0];
+    
+    //ボタンとスライダーをセット
+    [self setButtonsAndSlider];
+}
+
+//再生/停止ボタンイベント
+- (void)buttonTapped:(UIButton *)button
+{
+    if (button.tag == AUDIO_PLAY) {
+        //[_audioPlayer setVolume:_audioVolumeSlider.value];
+        _audioPlayer.volume = _audioVolumeSlider.value;
+        //_audioPlayer.currentTime = 0;
+        [_audioPlayer play];
+    } else if (button.tag == AUDIO_STOP) {
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
         [_audioPlayer pause];
     }
 }
 
+<<<<<<< HEAD
 /*
+=======
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 //オーディオボリューム変更
 - (void)sliderValueChanged:(UISlider *)slider
 {
@@ -59,7 +83,11 @@ typedef enum audioPlayButtonEvent : NSInteger {
 }
 */
 
+<<<<<<< HEAD
 //再生/停止ボタンとボリュームスライダーの表示
+=======
+//ボタンとスライダーの表示
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 - (void)setButtonsAndSlider
 {
     //再生ボタン
@@ -83,8 +111,11 @@ typedef enum audioPlayButtonEvent : NSInteger {
     [self.view addSubview:buttonStop];
     
     //ボリュームスライダー
+<<<<<<< HEAD
     _audioVolumeSlider = [_audioPlayer volumeControlSlider:self rect:CGRectMake(50, 150, 220, 0) defaultValue:0.5f];
     /*
+=======
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
     UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(50, 150, 220, 0)];
     audioVolumeSlider.minimumValue = 0.0f;
     audioVolumeSlider.maximumValue = 1.0f;
@@ -93,7 +124,10 @@ typedef enum audioPlayButtonEvent : NSInteger {
     [_audioVolumeSlider addTarget:self
                            action:@selector(sliderValueChanged:)
                  forControlEvents:UIControlEventValueChanged];
+<<<<<<< HEAD
      */
+=======
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
     [self.view addSubview:_audioVolumeSlider];
 }
 

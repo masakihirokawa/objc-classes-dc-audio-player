@@ -2,7 +2,11 @@
 //  DCAudioPlayer.m
 //  DCAudioPlayerSample
 //
+<<<<<<< HEAD
 //  Created by 廣川政樹 on 2013/07/31.
+=======
+//  Created by Dolice on 2013/07/15.
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 //  Copyright (c) 2013年 Dolice. All rights reserved.
 //
 
@@ -10,12 +14,17 @@
 
 @implementation DCAudioPlayer
 
+<<<<<<< HEAD
 - (id)initWithAudio:(NSString *)fileName ext:(NSString *)ext
+=======
+- (id)initWithAudioResource:fileName fileExt:(NSString *)fileExt numberOfLoops:(NSInteger)numberOfLoops
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 {
     if (self = [super init]) {
         //オーディオプレイヤー初期化
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSString *filePath = [mainBundle pathForResource:fileName
+<<<<<<< HEAD
                                                   ofType:ext];
         NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
         NSError *error = nil;
@@ -28,6 +37,23 @@
             
             //バッファを保持
             [_audioPlayer prepareToPlay];
+=======
+                                                  ofType:fileExt];
+        NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
+        NSError *error = nil;
+        AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl
+                                                                            error:&error];
+        
+        if (!error) {
+            //バッファを保持
+            [audioPlayer prepareToPlay];
+            
+            //オーディオプレイヤー保持
+            _audioPlayer = audioPlayer;
+            
+            //ループ回数の指定
+            _audioPlayer.numberOfLoops = numberOfLoops;
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
         }
     }
     return self;
@@ -35,7 +61,10 @@
 
 - (void)play
 {
+<<<<<<< HEAD
     [_audioPlayer prepareToPlay];
+=======
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
     [_audioPlayer play];
 }
 
@@ -50,6 +79,7 @@
     [_audioPlayer prepareToPlay];
 }
 
+<<<<<<< HEAD
 - (UISlider *)volumeControlSlider:(id)delegate rect:(CGRect)rect defaultValue:(float)defaultValue
 {
     UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:rect];
@@ -83,6 +113,16 @@
 - (void)setCurrentTime:(NSTimeInterval)currentTime
 {
     currentTime = currentTime;
+=======
+- (void)setVolume:(float)volume
+{
+    self.volume = volume;
+}
+
+- (float)getVolume
+{
+    return self.volume;
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 }
 
 @end

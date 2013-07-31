@@ -19,8 +19,13 @@
 		6089871317843C4700884767 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6089871117843C4700884767 /* MainStoryboard.storyboard */; };
 		6089871617843C4700884767 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6089871517843C4700884767 /* ViewController.m */; };
 		60B634DD178444A7005CDC60 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B634DC178444A7005CDC60 /* AVFoundation.framework */; };
+<<<<<<< HEAD
 		60C9000D17A8CA0200BC3262 /* DCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9000C17A8CA0200BC3262 /* DCAudioPlayer.m */; };
 		60C9001117A9064D00BC3262 /* o-magne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 60C9001017A9064D00BC3262 /* o-magne.mp3 */; };
+=======
+		C22277AA1792C5AB00E78529 /* o-magne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C22277A91792C5AB00E78529 /* o-magne.mp3 */; };
+		C283073717937F1A00C2D6B7 /* DCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C283073617937F1A00C2D6B7 /* DCAudioPlayer.m */; };
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +46,15 @@
 		6089871417843C4700884767 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6089871517843C4700884767 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		60B634DC178444A7005CDC60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+<<<<<<< HEAD
 		60C9000B17A8CA0200BC3262 /* DCAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCAudioPlayer.h; sourceTree = "<group>"; };
 		60C9000C17A8CA0200BC3262 /* DCAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCAudioPlayer.m; sourceTree = "<group>"; };
 		60C9001017A9064D00BC3262 /* o-magne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "o-magne.mp3"; sourceTree = "<group>"; };
+=======
+		C22277A91792C5AB00E78529 /* o-magne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "o-magne.mp3"; sourceTree = "<group>"; };
+		C283073517937F1A00C2D6B7 /* DCAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCAudioPlayer.h; path = Classes/DCAudioPlayer.h; sourceTree = "<group>"; };
+		C283073617937F1A00C2D6B7 /* DCAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCAudioPlayer.m; path = Classes/DCAudioPlayer.m; sourceTree = "<group>"; };
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,13 +103,21 @@
 		608986FF17843C4700884767 /* DCAudioPlayerSample */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				60C9000A17A8CA0200BC3262 /* Classes */,
+=======
+				C283073817937F2100C2D6B7 /* Classes */,
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 				6089870817843C4700884767 /* AppDelegate.h */,
 				6089870917843C4700884767 /* AppDelegate.m */,
 				6089871117843C4700884767 /* MainStoryboard.storyboard */,
 				6089871417843C4700884767 /* ViewController.h */,
 				6089871517843C4700884767 /* ViewController.m */,
+<<<<<<< HEAD
 				60C9000E17A9064D00BC3262 /* Resources */,
+=======
+				C22277A71792C5AB00E78529 /* Resources */,
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 				6089870017843C4700884767 /* Supporting Files */,
 			);
 			path = DCAudioPlayerSample;
@@ -118,6 +137,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		60C9000A17A8CA0200BC3262 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +161,31 @@
 				60C9001017A9064D00BC3262 /* o-magne.mp3 */,
 			);
 			path = audio;
+=======
+		C22277A71792C5AB00E78529 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C22277A81792C5AB00E78529 /* audio */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C22277A81792C5AB00E78529 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				C22277A91792C5AB00E78529 /* o-magne.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		C283073817937F2100C2D6B7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C283073517937F1A00C2D6B7 /* DCAudioPlayer.h */,
+				C283073617937F1A00C2D6B7 /* DCAudioPlayer.m */,
+			);
+			name = Classes;
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +244,11 @@
 				6089870E17843C4700884767 /* Default@2x.png in Resources */,
 				6089871017843C4700884767 /* Default-568h@2x.png in Resources */,
 				6089871317843C4700884767 /* MainStoryboard.storyboard in Resources */,
+<<<<<<< HEAD
 				60C9001117A9064D00BC3262 /* o-magne.mp3 in Resources */,
+=======
+				C22277AA1792C5AB00E78529 /* o-magne.mp3 in Resources */,
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +262,11 @@
 				6089870617843C4700884767 /* main.m in Sources */,
 				6089870A17843C4700884767 /* AppDelegate.m in Sources */,
 				6089871617843C4700884767 /* ViewController.m in Sources */,
+<<<<<<< HEAD
 				60C9000D17A8CA0200BC3262 /* DCAudioPlayer.m in Sources */,
+=======
+				C283073717937F1A00C2D6B7 /* DCAudioPlayer.m in Sources */,
+>>>>>>> 62c2efb3ee6e297a3f4256d698163b9471a5841a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
