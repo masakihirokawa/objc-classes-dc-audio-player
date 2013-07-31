@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
+#import "DCAudioPlayer.h"
+
+#define AUDIO_RESOURCE_FILE_NAME @"o-magne"
+#define AUDIO_RESOURCE_FILE_EXT  @"mp3"
 
 @interface ViewController : UIViewController
 

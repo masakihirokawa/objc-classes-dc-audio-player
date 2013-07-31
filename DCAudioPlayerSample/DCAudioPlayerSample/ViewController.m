@@ -10,76 +10,91 @@
 
 @interface ViewController ()
 
+@property AVAudioPlayer *audioPlayer;
+@property UISlider      *audioVolumeSlider;
+
 @end
 
 @implementation ViewController
 
-AVAudioPlayer *audioPlayer_;
-UISlider *slider_;
+typedef enum audioPlayButtonEvent : NSInteger {
+    AUDIO_PLAY = 1,
+    AUDIO_STOP = 2
+} audioPlayButtonEvent;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *filePath = [mainBundle pathForResource:@"sample" ofType:@"mp3"];
-    NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
-    NSError *error = nil;
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl error:&error];
-    if(!error){
-        [audioPlayer prepareToPlay];
-        [self setButtonAndSlider];
-        audioPlayer_ = audioPlayer;
-    } else {
-        NSLog(@"AVAudioPlayer Error");
-    }
+    //初期化
+    _audioPlayer = [[DCAudioPlayer alloc] initWithAudio:AUDIO_RESOURCE_FILE_NAME
+                                                    ext:AUDIO_RESOURCE_FILE_EXT];
+    
+    //再生/停止ボタンとボリュームスライダー表示
+    [self setButtonsAndSlider];
 }
 
 
-
+//再生/停止ボタンイベント
 - (void)buttonWasTapped:(UIButton *)button
 {
     if (button.tag == 1) {
-        float volume = slider_.value;
-        audioPlayer_.volume = volume;
-        audioPlayer_.currentTime = 0;
-        [audioPlayer_ play];
-        NSLog(@"volume: %f", volume);
+        //再生
+        [_audioPlayer setVolume:_audioVolumeSlider.value];
+        [_audioPlayer setCurrentTime:0];
+        [_audioPlayer play];
     } else {
-        [audioPlayer_ pause];
+        //一時停止
+        [_audioPlayer pause];
     }
 }
 
-- (void)sliderValueWasChanged:(UISlider *)slider
+/*
+//オーディオボリューム変更
+- (void)sliderValueChanged:(UISlider *)slider
 {
-    if (audioPlayer_) {
-        audioPlayer_.volume = slider.value;
+    if (_audioPlayer) {
+        _audioPlayer.volume = slider.value;
     }
 }
+*/
 
-- (void)setButtonAndSlider
+//再生/停止ボタンとボリュームスライダーの表示
+- (void)setButtonsAndSlider
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(50, 50, 100, 50);
-    button.tag = 1;
-    [button setTitle:@"Start" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    //再生ボタン
+    UIButton *buttonPlay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    buttonPlay.frame = CGRectMake(50, 50, 100, 50);
+    buttonPlay.tag = AUDIO_PLAY;
+    [buttonPlay setTitle:@"Play" forState:UIControlStateNormal];
+    [buttonPlay addTarget:self
+                   action:@selector(buttonTapped:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonPlay];
     
-    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button2.frame = CGRectMake(170, 50, 100, 50);
-    button2.tag = 2;
-    [button2 setTitle:@"Stop" forState:UIControlStateNormal];
-    [button2 addTarget:self action:@selector(buttonWasTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button2];
+    //停止ボタン
+    UIButton *buttonStop = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    buttonStop.frame = CGRectMake(170, 50, 100, 50);
+    buttonStop.tag = AUDIO_STOP;
+    [buttonStop setTitle:@"Stop" forState:UIControlStateNormal];
+    [buttonStop addTarget:self
+                   action:@selector(buttonTapped:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonStop];
     
-    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(50, 150, 220, 0)];
-    slider.minimumValue = 0.0f;
-    slider.maximumValue = 1.0f;
-    slider.value = 0.5f;
-    slider_ = slider;
-    [slider addTarget:self action:@selector(sliderValueWasChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:slider];
+    //ボリュームスライダー
+    _audioVolumeSlider = [_audioPlayer volumeControlSlider:self rect:CGRectMake(50, 150, 220, 0) defaultValue:0.5f];
+    /*
+    UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(50, 150, 220, 0)];
+    audioVolumeSlider.minimumValue = 0.0f;
+    audioVolumeSlider.maximumValue = 1.0f;
+    audioVolumeSlider.value = 0.5f;
+    _audioVolumeSlider = audioVolumeSlider;
+    [_audioVolumeSlider addTarget:self
+                           action:@selector(sliderValueChanged:)
+                 forControlEvents:UIControlEventValueChanged];
+     */
+    [self.view addSubview:_audioVolumeSlider];
 }
 
 @end
