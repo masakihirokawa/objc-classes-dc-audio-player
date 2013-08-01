@@ -10,7 +10,7 @@
 
 @interface ViewController ()
 
-@property AVAudioPlayer *audioPlayer;
+@property DCAudioPlayer *audioPlayer;
 @property UISlider      *audioVolumeSlider;
 
 @end
@@ -36,12 +36,12 @@ typedef enum audioPlayButtonEvent : NSInteger {
 
 
 //再生/停止ボタンイベント
-- (void)buttonWasTapped:(UIButton *)button
+- (void)buttonTapped:(UIButton *)button
 {
     if (button.tag == 1) {
         //再生
-        [_audioPlayer setVolume:_audioVolumeSlider.value];
-        [_audioPlayer setCurrentTime:0];
+        //[_audioPlayer setVolume:_audioVolumeSlider.value];
+        //[_audioPlayer setCurrentTime:0];
         [_audioPlayer play];
     } else {
         //一時停止
@@ -83,17 +83,9 @@ typedef enum audioPlayButtonEvent : NSInteger {
     [self.view addSubview:buttonStop];
     
     //ボリュームスライダー
-    //_audioVolumeSlider = [_audioPlayer volumeControlSlider:self rect:CGRectMake(50, 150, 220, 0) defaultValue:0.5f];
-    /*
-     UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(50, 150, 220, 0)];
-     audioVolumeSlider.minimumValue = 0.0f;
-     audioVolumeSlider.maximumValue = 1.0f;
-     audioVolumeSlider.value = 0.5f;
-     _audioVolumeSlider = audioVolumeSlider;
-     [_audioVolumeSlider addTarget:self
-     action:@selector(sliderValueChanged:)
-     forControlEvents:UIControlEventValueChanged];
-     */
+    _audioVolumeSlider = [_audioPlayer volumeControlSlider:self
+                                                     point:CGPointMake(50, 150)
+                                              defaultValue:0.5f];
     [self.view addSubview:_audioVolumeSlider];
 }
 
