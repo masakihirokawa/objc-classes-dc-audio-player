@@ -19,7 +19,8 @@
 
 typedef enum audioPlayButtonEvent : NSInteger {
     AUDIO_PLAY = 1,
-    AUDIO_STOP = 2
+    AUDIO_PAUSE = 2,
+    AUDIO_STOP = 3
 } audioPlayButtonEvent;
 
 - (void)viewDidLoad
@@ -38,33 +39,26 @@ typedef enum audioPlayButtonEvent : NSInteger {
 //再生/停止ボタンイベント
 - (void)buttonTapped:(UIButton *)button
 {
-    if (button.tag == 1) {
+    if (button.tag == AUDIO_PLAY) {
         //再生
-        //[_audioPlayer setVolume:_audioVolumeSlider.value];
-        //[_audioPlayer setCurrentTime:0];
+        [_audioPlayer setVolume:_audioVolumeSlider.value];
+        [_audioPlayer setCurrentTime:0];
         [_audioPlayer play];
-    } else {
+    } else if (button.tag == AUDIO_PAUSE) {
         //一時停止
         [_audioPlayer pause];
+    } else if (button.tag == AUDIO_STOP) {
+        //停止
+        [_audioPlayer stop];
     }
 }
-
-/*
- //オーディオボリューム変更
- - (void)sliderValueChanged:(UISlider *)slider
- {
- if (_audioPlayer) {
- _audioPlayer.volume = slider.value;
- }
- }
- */
 
 //再生/停止ボタンとボリュームスライダーの表示
 - (void)setButtonsAndSlider
 {
     //再生ボタン
     UIButton *buttonPlay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    buttonPlay.frame = CGRectMake(50, 50, 100, 50);
+    buttonPlay.frame = CGRectMake(20, 50, BUTTON_WIDTH, BUTTON_HEIGHT);
     buttonPlay.tag = AUDIO_PLAY;
     [buttonPlay setTitle:@"Play" forState:UIControlStateNormal];
     [buttonPlay addTarget:self
@@ -72,9 +66,19 @@ typedef enum audioPlayButtonEvent : NSInteger {
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonPlay];
     
+    //一時停止ボタン
+    UIButton *buttonPause = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    buttonPause.frame = CGRectMake(120, 50, BUTTON_WIDTH, BUTTON_HEIGHT);
+    buttonPause.tag = AUDIO_PAUSE;
+    [buttonPause setTitle:@"Pause" forState:UIControlStateNormal];
+    [buttonPause addTarget:self
+                    action:@selector(buttonTapped:)
+          forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonPause];
+    
     //停止ボタン
     UIButton *buttonStop = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    buttonStop.frame = CGRectMake(170, 50, 100, 50);
+    buttonStop.frame = CGRectMake(220, 50, BUTTON_WIDTH, BUTTON_HEIGHT);
     buttonStop.tag = AUDIO_STOP;
     [buttonStop setTitle:@"Stop" forState:UIControlStateNormal];
     [buttonStop addTarget:self
@@ -83,10 +87,20 @@ typedef enum audioPlayButtonEvent : NSInteger {
     [self.view addSubview:buttonStop];
     
     //ボリュームスライダー
+    SEL selector = @selector(sliderValueChanged:);
     _audioVolumeSlider = [_audioPlayer volumeControlSlider:self
                                                      point:CGPointMake(50, 150)
-                                              defaultValue:0.5f];
+                                              defaultValue:0.5f
+                                                  selector:selector];
     [self.view addSubview:_audioVolumeSlider];
+}
+
+//オーディオボリューム変更
+- (void)sliderValueChanged:(UISlider *)slider
+{
+    if (_audioPlayer) {
+        _audioPlayer.volume = slider.value;
+    }
 }
 
 @end

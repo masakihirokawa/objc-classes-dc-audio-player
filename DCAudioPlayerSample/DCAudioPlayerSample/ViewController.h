@@ -11,6 +11,8 @@
 
 #define AUDIO_RESOURCE_FILE_NAME @"o-magne"
 #define AUDIO_RESOURCE_FILE_EXT  @"mp3"
+#define BUTTON_WIDTH             80
+#define BUTTON_HEIGHT            50
 
 @interface ViewController : UIViewController
 

@@ -8,7 +8,8 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#define SLIDER_WIDTH 220
+#define SLIDER_WIDTH  220
+#define SLIDER_HEIGHT 0
 
 @interface DCAudioPlayer : AVAudioPlayer
 
@@ -30,6 +31,6 @@
 - (void)stop;
 - (void)setVolume:(CGFloat)volume;
 - (void)setCurrentTime:(NSTimeInterval)currentTime;
-- (UISlider *)volumeControlSlider:(id)delegate point:(CGPoint)point defaultValue:(float)defaultValue;
+- (UISlider *)volumeControlSlider:(id)delegate point:(CGPoint)point defaultValue:(float)defaultValue selector:(id)selector;
 
 @end

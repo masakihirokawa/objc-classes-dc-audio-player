@@ -61,9 +61,9 @@
 }
 
 //ボリュームコントロールスライダー
-- (UISlider *)volumeControlSlider:(id)delegate point:(CGPoint)point defaultValue:(float)defaultValue
+- (UISlider *)volumeControlSlider:(id)delegate point:(CGPoint)point defaultValue:(float)defaultValue selector:(id)selector
 {
-    UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(point.x, point.y, SLIDER_WIDTH, 0)];
+    UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(point.x, point.y, SLIDER_WIDTH, SLIDER_HEIGHT)];
     audioVolumeSlider.minimumValue = 0.0f;
     audioVolumeSlider.maximumValue = 1.0f;
     if (defaultValue > 1.0f) {
@@ -83,14 +83,14 @@
 - (void)sliderValueChanged:(UISlider *)slider
 {
     if (_audioPlayer) {
-        [self setVolume:slider.value];
+        //[self setVolume:slider.value];
     }
 }
 
 //ボリューム指定
 - (void)setVolume:(float)volume
 {
-    self.volume = volume;
+    volume = volume;
 }
 
 //ボリューム取得
