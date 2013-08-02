@@ -38,8 +38,10 @@
 - (void)play
 {
     if (_audioPlayer) {
-        [_audioPlayer prepareToPlay];
-        [_audioPlayer play];
+        if (!_audioPlayer.isPlaying) {
+            [_audioPlayer prepareToPlay];
+            [_audioPlayer play];
+        }
     }
 }
 
@@ -47,7 +49,9 @@
 - (void)pause
 {
     if (_audioPlayer) {
-        [_audioPlayer pause];
+        if (_audioPlayer.isPlaying) {
+            [_audioPlayer pause];
+        }
     }
 }
 
@@ -55,60 +59,59 @@
 - (void)stop
 {
     if (_audioPlayer) {
-        [_audioPlayer stop];
-        [_audioPlayer prepareToPlay];
+        if (_audioPlayer.isPlaying) {
+            [_audioPlayer stop];
+            [_audioPlayer prepareToPlay];
+        }
     }
 }
 
 //ボリュームコントロールスライダー
-- (UISlider *)volumeControlSlider:(id)delegate point:(CGPoint)point defaultValue:(float)defaultValue selector:(id)selector
+- (UISlider *)volumeControlSlider:(id)delegate point:(CGPoint)point defaultValue:(float)defaultValue selector:(SEL)selector
 {
-    UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(point.x, point.y, SLIDER_WIDTH, SLIDER_HEIGHT)];
+    UISlider *audioVolumeSlider = [[UISlider alloc] initWithFrame:CGRectMake(point.x,
+                                                                             point.y,
+                                                                             AUDIO_VOLUME_SLIDER_WIDTH,
+                                                                             AUDIO_VOLUME_SLIDER_HEIGHT)];
     audioVolumeSlider.minimumValue = 0.0f;
     audioVolumeSlider.maximumValue = 1.0f;
-    if (defaultValue > 1.0f) {
-        defaultValue = 1.0f;
-    }
-    if (defaultValue < 0.0f) {
-        defaultValue = 0.0f;
-    }
+    if (defaultValue > AUDIO_MAX_VOLUME) defaultValue = AUDIO_MAX_VOLUME;
+    if (defaultValue < AUDIO_MIN_VOLUME) defaultValue = AUDIO_MIN_VOLUME;
     audioVolumeSlider.value = defaultValue;
     [audioVolumeSlider addTarget:delegate
-                          action:@selector(sliderValueChanged:)
+                          action:selector
                 forControlEvents:UIControlEventValueChanged];
     return audioVolumeSlider;
-}
-
-//スライダー変更時のイベント
-- (void)sliderValueChanged:(UISlider *)slider
-{
-    if (_audioPlayer) {
-        //[self setVolume:slider.value];
-    }
 }
 
 //ボリューム指定
 - (void)setVolume:(float)volume
 {
-    volume = volume;
-}
-
-//ボリューム取得
-- (float)getVolume
-{
-    return self.volume;
+    if (_audioPlayer) {
+        _audioPlayer.volume = volume;
+    }
 }
 
 //現在の再生フレーム指定
 - (void)setCurrentTime:(NSTimeInterval)currentTime
 {
-    currentTime = currentTime;
+    if (_audioPlayer) {
+        _audioPlayer.currentTime = currentTime;
+    }
 }
 
-//現在の再生フレーム取得
-- (NSTimeInterval)getCurrentTime
+//ループ回数指定
+- (void)setNumberOfLoops:(NSInteger)numberOfLoops
 {
-    return self.currentTime;
+    if (_audioPlayer) {
+        _audioPlayer.numberOfLoops = numberOfLoops;
+    }
+}
+
+//再生状況の取得
+- (BOOL)isPlaying
+{
+    return _audioPlayer.playing;
 }
 
 @end

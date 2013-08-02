@@ -40,14 +40,25 @@ typedef enum audioPlayButtonEvent : NSInteger {
 - (void)buttonTapped:(UIButton *)button
 {
     if (button.tag == AUDIO_PLAY) {
-        //再生
+        //ボリューム指定
         [_audioPlayer setVolume:_audioVolumeSlider.value];
-        [_audioPlayer setCurrentTime:0];
+        
+        //ループ回数指定
+        [_audioPlayer setNumberOfLoops:-1];
+        
+        //再生
         [_audioPlayer play];
     } else if (button.tag == AUDIO_PAUSE) {
-        //一時停止
-        [_audioPlayer pause];
+        if (_audioPlayer.isPlaying) {
+            //一時停止
+            [_audioPlayer pause];
+        } else {
+            //再生
+            [_audioPlayer play];
+        }
     } else if (button.tag == AUDIO_STOP) {
+        //再生フレーム指定
+        [_audioPlayer setCurrentTime:0];
         //停止
         [_audioPlayer stop];
     }
@@ -87,11 +98,10 @@ typedef enum audioPlayButtonEvent : NSInteger {
     [self.view addSubview:buttonStop];
     
     //ボリュームスライダー
-    SEL selector = @selector(sliderValueChanged:);
     _audioVolumeSlider = [_audioPlayer volumeControlSlider:self
                                                      point:CGPointMake(50, 150)
-                                              defaultValue:0.5f
-                                                  selector:selector];
+                                              defaultValue:0.2f
+                                                  selector:@selector(sliderValueChanged:)];
     [self.view addSubview:_audioVolumeSlider];
 }
 
@@ -99,7 +109,7 @@ typedef enum audioPlayButtonEvent : NSInteger {
 - (void)sliderValueChanged:(UISlider *)slider
 {
     if (_audioPlayer) {
-        _audioPlayer.volume = slider.value;
+        [_audioPlayer setVolume:slider.value];
     }
 }
 

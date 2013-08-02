@@ -8,7 +8,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DCAudioPlayerSample/ViewController.m"
-         timestampString = "397033769.939464"
+         timestampString = "397115470.345614"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "44"
@@ -21,7 +21,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DCAudioPlayerSample/ViewController.m"
-         timestampString = "397032612.618239"
+         timestampString = "397115470.345614"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "42"
@@ -34,25 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DCAudioPlayerSample/Classes/DCAudioPlayer.m"
-         timestampString = "397025874.159131"
+         timestampString = "397115470.345614"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
          landmarkName = "-volumeControlSlider:point:defaultValue:selector:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "DCAudioPlayerSample/Classes/DCAudioPlayer.m"
-         timestampString = "397033438.805119"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
-         landmarkName = "-getVolume"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -60,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "DCAudioPlayerSample/ViewController.m"
-         timestampString = "397034380.783571"
+         timestampString = "397117209.422557"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "94"
-         endingLineNumber = "94"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-setButtonsAndSlider"
          landmarkType = "5">
       </FileBreakpoint>
